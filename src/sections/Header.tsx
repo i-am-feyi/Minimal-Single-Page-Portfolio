@@ -27,7 +27,7 @@ const navItems = [
 
 const Header: FC = () => {
   return (
-    <header className="fixed top-0 left-0 w-full backdrop-blur-md">
+    <header className="fixed top-0 left-0 w-full backdrop-blur-md z-50">
       <div className="container !max-w-full">
         <div className="flex justify-between h-20 items-center">
           <div>
