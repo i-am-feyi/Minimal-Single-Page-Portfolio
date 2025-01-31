@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/feyisayo/Documents/Coding/nextjs/minimal-single-page-portfolio/src/app/layout\":[\"static/media/b4f46b1ccc361ec4-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
