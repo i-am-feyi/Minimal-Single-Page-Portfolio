@@ -11,7 +11,7 @@ const archivo = Archivo({
 
 export const metadata: Metadata = {
   title: "Minimal Single Page Portfolio",
-  description: "Created with Frontend Tribe",
+  description: "Minimal Single Page Portfolio",
 };
 
 export default function RootLayout({
