@@ -51,7 +51,7 @@ const Projects: FC = () => {
                     className="size-full object-cover"
                   />
                 </div>
-                <div className="mt- md:mt-0 flex justify-between items-center">
+                <div className="mt-4 md:mt-0 flex justify-between items-center">
                   <h3 className="text-2xl md:text-3xl lg:text-4xl">{name}</h3>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
