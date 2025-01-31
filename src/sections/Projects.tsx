@@ -33,7 +33,7 @@ const projects = [
 
 const Projects: FC = () => {
   return (
-    <section className="py-24 md:py-32 lg:py-40">
+    <section className="section">
       <div className="container">
         <h2 className="text-4xl md:text-7xl lg:text-8xl">Selected Works</h2>
         <div className="mt-10 md:mt-16 lg:mt-20">
@@ -46,11 +46,9 @@ const Projects: FC = () => {
               <div className="relative h-full">
                 <div className="aspect-video md:hidden">
                   <Image
-                    src={image.src}
+                    src={image}
                     alt={`${name} image`}
                     className="size-full object-cover"
-                    width={400}
-                    height={400}
                   />
                 </div>
                 <div className="mt- md:mt-0 flex justify-between items-center">
