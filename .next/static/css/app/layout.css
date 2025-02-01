@@ -833,6 +833,12 @@ video {
 .uppercase {
   text-transform: uppercase;
 }
+.lowercase {
+  text-transform: lowercase;
+}
+.normal-case {
+  text-transform: none;
+}
 .not-italic {
   font-style: normal;
 }
