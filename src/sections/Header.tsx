@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/components/button";
-import { FC, useEffect, useState } from "react";
+import { FC, MouseEvent, useEffect, useState } from "react";
 import { motion, useAnimate } from "motion/react";
 
 const navItems = [
@@ -31,6 +31,8 @@ const Header: FC = () => {
 
   const [topLineScope, topLineAnimate] = useAnimate();
   const [bottomLineScope, bottomLineAnimate] = useAnimate();
+
+  const [navScope, navAnimate] = useAnimate();
 
   useEffect(() => {
     if (isOpen) {
@@ -63,6 +65,16 @@ const Header: FC = () => {
           },
         ],
       ]);
+
+      navAnimate(
+        navScope.current,
+        {
+          height: "100%",
+        },
+        {
+          duration: 0.7,
+        }
+      );
     } else {
       topLineAnimate([
         [
@@ -93,6 +105,10 @@ const Header: FC = () => {
           },
         ],
       ]);
+
+      navAnimate(navScope.current, {
+        height: 0,
+      });
     }
   }, [
     isOpen,
@@ -100,19 +116,41 @@ const Header: FC = () => {
     bottomLineScope,
     topLineAnimate,
     topLineScope,
+    navScope,
+    navAnimate,
   ]);
 
-  const toggleIsOpen = () => {
-    setIsOpen((prev) => !prev);
+  const handleClickMobileNavItem = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsOpen(false);
+
+    const url = new URL(e.currentTarget.href);
+    const hash = url.hash;
+
+    const target = document.querySelector(hash);
+
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <header>
-      <div className="fixed top-0 left-0 w-full h-full bg-stone-900">
+      <motion.div
+        className="fixed top-0 left-0 w-full h-0 overflow-hidden bg-stone-900"
+        ref={navScope}
+      >
         <nav className="mt-20 flex flex-col">
           {navItems.map(({ label, href }) => (
-            <a href={href} key={label} className="text-stone-200">
-              <div className="container !max-w-full  flex items-center justify-between border-t last:border-b border-stone-800 py-8">
-                <span className="text-3xl">{label}</span>
+            <a
+              href={href}
+              key={label}
+              className="text-stone-200 border-t last:border-b border-stone-800 py-8 group/nav-item relative isolate z-10"
+              onClick={handleClickMobileNavItem}
+            >
+              <div className="container !max-w-full  flex items-center justify-between">
+                <span className="text-3xl group-hover/nav-item:pl-4 transition-all duration-500">
+                  {label}
+                </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -128,10 +166,11 @@ const Header: FC = () => {
                   />
                 </svg>
               </div>
+              <div className="absolute w-full h-0 left-0 bottom-0 bg-stone-800  group-hover/nav-item:h-full transition-all -z-10 duration-700"></div>
             </a>
           ))}
         </nav>
-      </div>
+      </motion.div>
       <div className="fixed top-0 left-0 w-full mix-blend-difference backdrop-blur-md">
         <div className="container !max-w-full">
           <div className="flex justify-between h-20 items-center">
@@ -151,7 +190,7 @@ const Header: FC = () => {
             <div className="flex items-center gap-4">
               <div
                 className="size-11 border border-stone-400 rounded-full inline-flex items-center justify-center bg-stone-200"
-                onClick={toggleIsOpen}
+                onClick={() => setIsOpen(!isOpen)}
               >
                 <svg
                   width="24"

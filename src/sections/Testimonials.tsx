@@ -40,7 +40,7 @@ const Testimonials: FC = () => {
   const testimonialIndex = 0;
 
   return (
-    <section className="section">
+    <section className="section" id="testimonials">
       <h2 className="text-4xl md:text-7xl lg:text-8xl flex flex-col overflow-hidden">
         <span className="whitespace-nowrap">
           Some nice words from my past clients
