@@ -13,3 +13,9 @@
 .word {
   @apply translate-y-full;
 }
+
+@supports not (mix-blend-mode: difference) {
+  .no-blend {
+    mix-blend-mode: normal;
+  }
+}
