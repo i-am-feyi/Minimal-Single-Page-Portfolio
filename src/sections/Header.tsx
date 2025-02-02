@@ -171,7 +171,7 @@ const Header: FC = () => {
           ))}
         </nav>
       </div>
-      <div className="fixed top-0 left-0 backdrop-blur-md w-full mix-blend-difference">
+      <div className="fixed top-0 left-0 backdrop-blur-md w-full mix-blend-difference z-20">
         <div className="container !max-w-full">
           <div className="flex justify-between h-20 items-center">
             <div>
