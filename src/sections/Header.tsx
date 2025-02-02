@@ -135,7 +135,7 @@ const Header: FC = () => {
   };
   return (
     <header>
-      <motion.div
+      <div
         className="fixed top-0 left-0 w-full h-0 overflow-hidden bg-stone-900"
         ref={navScope}
       >
@@ -170,21 +170,8 @@ const Header: FC = () => {
             </a>
           ))}
         </nav>
-      </motion.div>
-      <div className="fixed top-0 left-0 w-full mix-blend-difference backdrop-blur-md">
-        <div className="container !max-w-full">
-          <div className="flex justify-between h-20 items-center">
-            <div>
-              <a href="/">
-                <span className="text-xl font-bold uppercase text-white">
-                  Alex&nbsp; Taylor
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
-      <div className="fixed top-0 right-0 w-full">
+      <div className="fixed top-0 right-0 w-full backdrop-blur-md">
         <div className="container !max-w-full">
           <div className="flex justify-end h-20 items-center">
             <div className="flex items-center gap-4">
@@ -229,6 +216,19 @@ const Header: FC = () => {
               >
                 Contact Me
               </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="fixed top-0 left-0 mix-blend-difference backdrop-blur-md">
+        <div className="container !max-w-full">
+          <div className="flex justify-between h-20 items-center">
+            <div>
+              <a href="/">
+                <span className="text-xl font-bold uppercase text-white">
+                  Alex&nbsp; Taylor
+                </span>
+              </a>
             </div>
           </div>
         </div>
