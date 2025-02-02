@@ -807,6 +807,9 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(28 25 23 / var(--tw-bg-opacity, 1));
 }
+.bg-stone-200\/10 {
+  background-color: rgb(231 229 228 / 0.1);
+}
 .object-cover {
   object-fit: cover;
 }
